@@ -23,7 +23,7 @@ struct CustomTextField: View {
                 .font(Font.custom("SFCompactDisplay", size: 20))
                 .background(Color.white.opacity(0.1))
                 .foregroundColor(.white)
-                .padding(.vertical, 10)
+                .padding(.vertical, 6)
         }
     }
 }

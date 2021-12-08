@@ -23,8 +23,7 @@ struct RegisterView: View {
                     .renderingMode(.template)
                     .foregroundColor(.white)
                   }
-            .padding(.top, 60)
-            .padding(.bottom, 30)
+            .padding(.top, 50)
             .frame(width: screenWidth)
             CustomTextField(
                 placeholder: Text("Email").foregroundColor(.white.opacity(0.5)),
@@ -72,7 +71,6 @@ struct RegisterView: View {
             .padding(.bottom, 16)
             .foregroundColor(.white)
             }
-            
             .background(LinearGradient(gradient: Gradient(colors: [Iris, Grape, Vivid, Princeton]), startPoint: .bottomTrailing, endPoint: .topLeading))
             .ignoresSafeArea(.all)
         }
