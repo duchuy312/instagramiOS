@@ -8,22 +8,23 @@
 import SwiftUI
 
 struct CustomTextField: View {
-    @Binding var data : String
-    var tFtext: String = ""
-    var tFImage: String = ""
+    var placeholder: Text
+    @Binding var text: String
+    var editingChanged: (Bool)->() = { _ in }
+    var commit: ()->() = { }
+    let screenWidth = UIScreen.main.bounds.size.width
+    
     var body: some View {
-        HStack {
-                Image(tFImage)
-                    .resizable()
-                    .frame(width: 20, height: 20)
-                    .padding()
-                TextField(tFtext, text: $data)
-                    .padding()
-                    .font(Font.custom("SFCompactDisplay", size: 16))
-                    .foregroundColor(.black)
-            }
-            .background(RoundedRectangle(cornerRadius: 10))
-            .foregroundColor(Color(#colorLiteral(red: 0.9647058824, green: 0.9725490196, blue: 0.9882352941, alpha: 1)))
+        ZStack(alignment: .leading) {
+            if text.isEmpty { placeholder.font(Font.custom("SFCompactDisplay", size: 20)).padding(.horizontal, 10) }
+            TextField("", text: $text, onEditingChanged: editingChanged, onCommit: commit)
+                .padding([.horizontal], 10)
+                .frame(width: screenWidth - 50, height: 65)
+                .font(Font.custom("SFCompactDisplay", size: 20))
+                .background(Color.white.opacity(0.1))
+                .foregroundColor(.white)
+                .padding(.vertical, 10)
+        }
     }
 }
 
