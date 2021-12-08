@@ -15,8 +15,10 @@ let screenWidth = UIScreen.main.bounds.size.width
 struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
-
+    @State var selection: Int? = nil
+    
     var body: some View {
+        NavigationView {
         VStack {
             VStack(){
                 Image("Instagram_logo_white").resizable()
@@ -33,14 +35,23 @@ struct LoginView: View {
                 placeholder: Text("Password").foregroundColor(.white.opacity(0.5)),
                         text: $password
                     )
-            Button("Log in") {
-                print("Button tapped!")
-            }
+            NavigationLink(destination: Text("HOME"), tag: 1, selection: $selection) {
+                Button(action: {
+                    print("login tapped")
+                    self.selection = 1
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("Login").foregroundColor(Color.white).font(.system(size: 20)).fontWeight(.bold)
+                        Spacer()
+                    }
+                }
                 .foregroundColor(.white)
                 .font(Font.custom("SFCompactDisplay", size: 20))
                 .frame(width: screenWidth - 50, height: 65)
                 .background(Iris.opacity(0.2))
                 .cornerRadius(5)
+            }
             HStack() {
                 Text("Forgot your password?")
                     .font(.system(size: 18))
@@ -54,15 +65,20 @@ struct LoginView: View {
             HStack() {
                 Text("Don't have an account?")
                     .font(.system(size: 18))
-                Text("Sign up")
-                    .fontWeight(.bold)
-                    .font(.system(size: 18))
+                NavigationLink(destination: RegisterView()) {
+                    Text("Sign up")
+                        .fontWeight(.bold)
+                        .font(.system(size: 18))
+                    }
             }
             .padding(.bottom, 16)
             .foregroundColor(.white)
             }
             .background(LinearGradient(gradient: Gradient(colors: [Iris, Grape, Vivid, Princeton]), startPoint: .bottomTrailing, endPoint: .topLeading))
             .ignoresSafeArea(.all)
+            
+    }
+        .navigationBarHidden(true)
     }
 }
 

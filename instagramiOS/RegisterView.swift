@@ -15,6 +15,7 @@ struct RegisterView: View {
     @State private var username: String = ""
     @State var text = ""
     var body: some View {
+        NavigationView {
         VStack {
             VStack(){
                 Image("plus_photo")
@@ -52,15 +53,20 @@ struct RegisterView: View {
             HStack() {
                 Text("Already have an account?")
                     .font(.system(size: 18))
-                Text("Sign in")
-                    .fontWeight(.bold)
-                    .font(.system(size: 18))
+                NavigationLink(destination: LoginView()) {
+                    Text("Sign in")
+                        .fontWeight(.bold)
+                        .font(.system(size: 18))
+                }
             }
             .padding(.bottom, 16)
             .foregroundColor(.white)
             }
+            
             .background(LinearGradient(gradient: Gradient(colors: [Iris, Grape, Vivid, Princeton]), startPoint: .bottomTrailing, endPoint: .topLeading))
             .ignoresSafeArea(.all)
+        }
+        .navigationBarHidden(true)
     }
 }
 
