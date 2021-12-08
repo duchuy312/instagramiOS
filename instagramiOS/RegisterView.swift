@@ -13,6 +13,7 @@ struct RegisterView: View {
     @State private var password: String = ""
     @State private var fullname: String = ""
     @State private var username: String = ""
+    @State var selectionRegister: Int? = nil
     @State var text = ""
     var body: some View {
         NavigationView {
@@ -41,14 +42,23 @@ struct RegisterView: View {
                 placeholder: Text("Username").foregroundColor(.white.opacity(0.5)),
                         text: $username
                     )
-            Button("Sign Up") {
-                print("Button tapped!")
-            }
+            NavigationLink(destination: LoginView(), tag: 1, selection: $selectionRegister) {
+                Button(action: {
+                    print("login tapped")
+                    self.selectionRegister = 1
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("Sign Up").foregroundColor(Color.white).font(.system(size: 20)).fontWeight(.bold)
+                        Spacer()
+                    }
+                }
                 .foregroundColor(.white)
                 .font(Font.custom("SFCompactDisplay", size: 20))
                 .frame(width: screenWidth - 50, height: 65)
                 .background(Iris.opacity(0.2))
                 .cornerRadius(5)
+            }
             Spacer()
             HStack() {
                 Text("Already have an account?")
