@@ -12,6 +12,7 @@ let Vivid = Color(red: 0.866, green: 0.164, blue: 0.482)
 let Princeton = Color(red: 0.96, green: 0.521, blue: 0.16)
 
 struct ContentView: View {
+    @State private var username: String = ""
     var body: some View {
         VStack {
             VStack(){
@@ -19,7 +20,7 @@ struct ContentView: View {
                     .frame(width: 250, height: 100)
                   }
                 .padding(40)
-            
+            TextField("Username", text: $username)
                 Divider()
                 Spacer()
             }
@@ -30,6 +31,10 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        if #available(iOS 15.0, *) {
+            ContentView()
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }
