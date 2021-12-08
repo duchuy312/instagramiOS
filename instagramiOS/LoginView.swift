@@ -35,7 +35,7 @@ struct LoginView: View {
                 placeholder: Text("Password").foregroundColor(.white.opacity(0.5)),
                         text: $password
                     )
-            NavigationLink(destination: Text("HOME"), tag: 1, selection: $selection) {
+            NavigationLink(destination: BottomTab(), tag: 1, selection: $selection) {
                 Button(action: {
                     print("login tapped")
                     self.selection = 1
