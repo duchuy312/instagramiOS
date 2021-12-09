@@ -41,6 +41,7 @@ struct ContentView_Bottom: PreviewProvider {
     static var previews: some View {
         if #available(iOS 15.0, *) {
             BottomTab()
+.previewInterfaceOrientation(.portrait)
         } else {
             // Fallback on earlier versions
         }

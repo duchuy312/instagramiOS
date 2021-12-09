@@ -77,6 +77,7 @@ struct ContentView_Register: PreviewProvider {
     static var previews: some View {
         if #available(iOS 15.0, *) {
             RegisterView()
+.previewInterfaceOrientation(.portrait)
         } else {
             // Fallback on earlier versions
         }
