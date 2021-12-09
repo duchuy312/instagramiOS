@@ -20,22 +20,18 @@ struct BottomTab: View {
             SearchTab()
                 .tabItem {
                     Image("search_selected")
-                    Text("Friends")
             }
             StoryTab()
                 .tabItem {
                     Image("home_selected")
-                    Text("Nearby")
             }
             LikeTab()
                 .tabItem {
                     Image("like_selected")
-                    Text("Friends")
             }
             ProfileTab()
                 .tabItem {
                     Image("profile_selected")
-                    Text("Nearby")
             }
         }
     }

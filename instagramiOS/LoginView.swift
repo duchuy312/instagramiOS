@@ -16,7 +16,9 @@ struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State var selection: Int? = nil
-    
+    var disableForm: Bool {
+        email.isEmpty || password.isEmpty
+    }
     var body: some View {
         NavigationView {
         VStack {
@@ -29,29 +31,19 @@ struct LoginView: View {
             .frame(width: screenWidth)
             CustomTextField(
                 placeholder: Text("Email").foregroundColor(.white.opacity(0.5)),
-                        text: $email
+                text: $email,
+                border: 2
                     )
-            CustomTextField(
+            SecureTextField(
                 placeholder: Text("Password").foregroundColor(.white.opacity(0.5)),
                         text: $password
                     )
             NavigationLink(destination: BottomTab(), tag: 1, selection: $selection) {
-                Button(action: {
-                    print("login tapped")
+                CustomButton(title: "Login", action: {
                     self.selection = 1
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("Login").foregroundColor(Color.white).font(.system(size: 20)).fontWeight(.bold)
-                        Spacer()
-                    }
-                }
-                .foregroundColor(.white)
-                .font(Font.custom("SFCompactDisplay", size: 20))
-                .frame(width: screenWidth - 50, height: 65)
-                .background(Iris.opacity(0.2))
-                .cornerRadius(5)
+                })
             }
+            .disabled(disableForm)
             HStack() {
                 Text("Forgot your password?")
                     .font(.system(size: 18))

@@ -15,6 +15,9 @@ struct RegisterView: View {
     @State private var username: String = ""
     @State var selectionRegister: Int? = nil
     @State var text = ""
+    var disableForm: Bool {
+        email.isEmpty || password.isEmpty || fullname.isEmpty || username.isEmpty
+    }
     var body: some View {
         NavigationView {
         VStack {
@@ -27,37 +30,29 @@ struct RegisterView: View {
             .frame(width: screenWidth)
             CustomTextField(
                 placeholder: Text("Email").foregroundColor(.white.opacity(0.5)),
-                        text: $email
+                text: $email,
+                border: 0
                     )
-            CustomTextField(
+            SecureTextField(
                 placeholder: Text("Password").foregroundColor(.white.opacity(0.5)),
-                        text: $password
+                text: $password
                     )
             CustomTextField(
                 placeholder: Text("Fullname").foregroundColor(.white.opacity(0.5)),
-                        text: $fullname
+                text: $fullname,
+                border: 0
                     )
             CustomTextField(
                 placeholder: Text("Username").foregroundColor(.white.opacity(0.5)),
-                        text: $username
+                text: $username,
+                border: 0
                     )
             NavigationLink(destination: LoginView(), tag: 1, selection: $selectionRegister) {
-                Button(action: {
-                    print("login tapped")
+                CustomButton(title: "Sign Up", action: {
                     self.selectionRegister = 1
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("Sign Up").foregroundColor(Color.white).font(.system(size: 20)).fontWeight(.bold)
-                        Spacer()
-                    }
-                }
-                .foregroundColor(.white)
-                .font(Font.custom("SFCompactDisplay", size: 20))
-                .frame(width: screenWidth - 50, height: 65)
-                .background(Iris.opacity(0.2))
-                .cornerRadius(5)
+                })
             }
+            .disabled(disableForm)
             Spacer()
             HStack() {
                 Text("Already have an account?")
