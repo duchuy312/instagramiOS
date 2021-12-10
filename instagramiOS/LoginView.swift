@@ -78,7 +78,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         if #available(iOS 15.0, *) {
             LoginView()
-.previewInterfaceOrientation(.portraitUpsideDown)
+.previewInterfaceOrientation(.portrait)
         } else {
             // Fallback on earlier versions
         }
