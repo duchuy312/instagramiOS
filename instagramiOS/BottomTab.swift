@@ -18,6 +18,8 @@ struct BottomTab: View {
                 .tabItem {
                     if selection == 0 {
                         Image("home_selected")
+                            .renderingMode(.template)
+                            .foregroundColor(Iris)
                     } else {
                         Image("home_unselected")
                     }
@@ -26,6 +28,8 @@ struct BottomTab: View {
                 .tabItem {
                     if selection == 1 {
                         Image("search_selected")
+                            .renderingMode(.template)
+                            .foregroundColor(Grape)
                     } else {
                         Image("search_unselected")
                     }
@@ -34,6 +38,8 @@ struct BottomTab: View {
                 .tabItem {
                     if selection == 2 {
                         Image("home_selected")
+                            .renderingMode(.template)
+                            .foregroundColor(Vivid)
                     } else {
                         Image("home_unselected")
                     }
@@ -42,6 +48,8 @@ struct BottomTab: View {
                 .tabItem {
                     if selection == 3 {
                         Image("like_selected")
+                            .renderingMode(.template)
+                            .foregroundColor(Princeton)
                     } else {
                         Image("like_unselected")
                     }
@@ -50,6 +58,8 @@ struct BottomTab: View {
                 .tabItem {
                     if selection == 4 {
                         Image("profile_selected")
+                            .renderingMode(.template)
+                            .foregroundColor(Color.purple)
                     } else {
                         Image("profile_unselected")
                     }

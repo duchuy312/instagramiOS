@@ -21,7 +21,7 @@ struct CustomButton: View {
         }
         .foregroundColor(.white)
         .font(Font.custom("SFCompactDisplay", size: 20))
-        .frame(width: screenWidth - 50, height: 65)
+        .frame(width: screenWidth - 50, height: screenHeight * 0.07)
         .background(Iris.opacity(0.3))
         .cornerRadius(5)
     }

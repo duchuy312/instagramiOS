@@ -17,6 +17,8 @@
 		0079B8B127619F38005565E5 /* SecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0079B8B027619F38005565E5 /* SecureTextField.swift */; };
 		0079B8B32761A3B3005565E5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0079B8B22761A3B3005565E5 /* CustomButton.swift */; };
 		00893FC72760539400BA5653 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00893FC62760539400BA5653 /* TextField.swift */; };
+		008A4BEB2763310800CCB2E7 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008A4BEA2763310800CCB2E7 /* Color.swift */; };
+		008A4BED2763342B00CCB2E7 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008A4BEC2763342B00CCB2E7 /* Validate.swift */; };
 		189D62B6275E4B92005EC637 /* instagramiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D62B5275E4B92005EC637 /* instagramiOSApp.swift */; };
 		189D62B8275E4B92005EC637 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D62B7275E4B92005EC637 /* LoginView.swift */; };
 		189D62BA275E4B94005EC637 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 189D62B9275E4B94005EC637 /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 		0079B8B027619F38005565E5 /* SecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextField.swift; sourceTree = "<group>"; };
 		0079B8B22761A3B3005565E5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		00893FC62760539400BA5653 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		008A4BEA2763310800CCB2E7 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		008A4BEC2763342B00CCB2E7 /* Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 		189D62B2275E4B92005EC637 /* instagramiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagramiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		189D62B5275E4B92005EC637 /* instagramiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instagramiOSApp.swift; sourceTree = "<group>"; };
 		189D62B7275E4B92005EC637 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -75,6 +79,15 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		008A4BE9276330BE00CCB2E7 /* Ultils */ = {
+			isa = PBXGroup;
+			children = (
+				008A4BEA2763310800CCB2E7 /* Color.swift */,
+				008A4BEC2763342B00CCB2E7 /* Validate.swift */,
+			);
+			path = Ultils;
+			sourceTree = "<group>";
+		};
 		189D62A9275E4B91005EC637 = {
 			isa = PBXGroup;
 			children = (
@@ -95,12 +108,13 @@
 			isa = PBXGroup;
 			children = (
 				006F511A2761FEC50095E649 /* Info.plist */,
-				0078CDE52760BC4200D9DB67 /* Tab */,
-				00893FC52760534400BA5653 /* Component */,
 				189D62B5275E4B92005EC637 /* instagramiOSApp.swift */,
 				189D62B7275E4B92005EC637 /* LoginView.swift */,
 				0019EBB827609A86000B6CFA /* RegisterView.swift */,
 				0078CDE32760B54600D9DB67 /* BottomTab.swift */,
+				00893FC52760534400BA5653 /* Component */,
+				0078CDE52760BC4200D9DB67 /* Tab */,
+				008A4BE9276330BE00CCB2E7 /* Ultils */,
 				189D62B9275E4B94005EC637 /* Assets.xcassets */,
 				189D62BB275E4B94005EC637 /* Preview Content */,
 			);
@@ -189,10 +203,12 @@
 				0078CDEB2760C01500D9DB67 /* StoryTab.swift in Sources */,
 				189D62B8275E4B92005EC637 /* LoginView.swift in Sources */,
 				0079B8B127619F38005565E5 /* SecureTextField.swift in Sources */,
+				008A4BEB2763310800CCB2E7 /* Color.swift in Sources */,
 				0019EBB927609A86000B6CFA /* RegisterView.swift in Sources */,
 				0078CDED2760C02600D9DB67 /* LikeTab.swift in Sources */,
 				0078CDEF2760C03E00D9DB67 /* ProfileTab.swift in Sources */,
 				0078CDE42760B54600D9DB67 /* BottomTab.swift in Sources */,
+				008A4BED2763342B00CCB2E7 /* Validate.swift in Sources */,
 				0079B8B32761A3B3005565E5 /* CustomButton.swift in Sources */,
 				00893FC72760539400BA5653 /* TextField.swift in Sources */,
 				189D62B6275E4B92005EC637 /* instagramiOSApp.swift in Sources */,

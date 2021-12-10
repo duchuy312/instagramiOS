@@ -13,14 +13,13 @@ struct SecureTextField: View {
     @Binding var text: String
     var editingChanged: (Bool)->() = { _ in }
     var commit: ()->() = { }
-    let screenWidth = UIScreen.main.bounds.size.width
     
     var body: some View {
         ZStack(alignment: .leading) {
             if text.isEmpty { placeholder.font(Font.custom("SFCompactDisplay", size: 20)).padding(.horizontal, 10) }
             SecureField("", text: $text, onCommit: commit)
                 .padding([.horizontal], 10)
-                .frame(width: screenWidth - 50, height: 65)
+                .frame(width: screenWidth - 50, height: screenHeight * 0.07)
                 .font(Font.custom("SFCompactDisplay", size: 20))
                 .background(Color.white.opacity(0.1))
                 .foregroundColor(.white)

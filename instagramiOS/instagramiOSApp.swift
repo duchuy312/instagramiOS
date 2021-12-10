@@ -11,7 +11,11 @@ import SwiftUI
 struct instagramiOSApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            if #available(iOS 15.0, *) {
+                LoginView(viewModel: ViewModel())
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
 }
