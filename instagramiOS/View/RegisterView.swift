@@ -22,17 +22,13 @@ struct RegisterView: View {
     var body: some View {
         NavigationView {
             VStack {
-                VStack(){
-                    Image("plus_photo")
-                        .renderingMode(.template)
-                        .foregroundColor(.white)
-                }
-                .padding(.top, 50)
-                .frame(width: screenWidth)
+                Image("plus_photo")
+                    .renderingMode(.template)
+                    .foregroundColor(.white)
+                    .padding(.top, 50)
                 CustomTextField(
                     placeholder: Text("Email").foregroundColor(.white.opacity(0.5)),
                     text: $email,
-                    border: 0,
                     warning: viewModel.emailPrompt(email: email)
                 )
                 SecureTextField(
@@ -42,13 +38,11 @@ struct RegisterView: View {
                 CustomTextField(
                     placeholder: Text("Fullname").foregroundColor(.white.opacity(0.5)),
                     text: $fullname,
-                    border: 0,
                     warning: viewModel.emailPrompt(email: email)
                 )
                 CustomTextField(
                     placeholder: Text("Username").foregroundColor(.white.opacity(0.5)),
                     text: $username,
-                    border: 0,
                     warning: viewModel.emailPrompt(email: email)
                 )
                 NavigationLink(destination: LoginView(viewModel: ViewModel()), tag: 1, selection: $selectionRegister) {
@@ -58,6 +52,7 @@ struct RegisterView: View {
                 }
                 .disabled(disableForm)
                 Spacer()
+                Divider()
                 HStack() {
                     Text("Already have an account?")
                         .font(.system(size: 18))

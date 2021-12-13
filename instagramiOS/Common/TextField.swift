@@ -14,7 +14,6 @@ struct CustomTextField: View {
     @Binding var text: String
     var editingChanged: (Bool)->() = { _ in }
     var commit: ()->() = { }
-    var border: CGFloat
     var warning: String
     @FocusState private var isFieldIsFocused: Bool
     var body: some View {
@@ -29,10 +28,6 @@ struct CustomTextField: View {
                     .background(Color.white.opacity(0.1))
                     .foregroundColor(.white)
                     .cornerRadius(5)
-                    .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.red, lineWidth: border)
-                        )
             }
             if !text.isEmpty && !isFieldIsFocused {
                 Text(warning)

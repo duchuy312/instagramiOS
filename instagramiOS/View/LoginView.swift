@@ -22,17 +22,13 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack {
-                VStack(){
-                    Image("Instagram_logo_white").resizable()
-                        .frame(width: 250, height: 100)
-                }
-                .padding(.top, 60)
-                .padding(.bottom, 30)
-                .frame(width: screenWidth)
+                Image("Instagram_logo_white").resizable()
+                    .frame(width: 250, height: 100)
+                    .padding(.top, 60)
+                    .padding(.bottom, 30)
                 CustomTextField(
                     placeholder: Text("Email").foregroundColor(.white.opacity(0.5)),
                     text: $email,
-                    border: 2,
                     warning: viewModel.emailPrompt(email: email)
                 )
                 SecureTextField(
@@ -55,6 +51,7 @@ struct LoginView: View {
                 .padding(.top, 16)
                 .foregroundColor(.white)
                 Spacer()
+                Divider()
                 HStack() {
                     Text("Don't have an account?")
                         .font(.system(size: 18))

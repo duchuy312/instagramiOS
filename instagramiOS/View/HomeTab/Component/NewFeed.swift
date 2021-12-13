@@ -51,7 +51,7 @@ struct NewFeed: View {
                         .clipShape(Rectangle())
                     Divider()
                     Group {
-                        Text("(timeline.name) ").fontWeight(.bold) +
+                        Text(timeline.name).fontWeight(.bold) +
                         Text(timeline.post)
                     }
                         .padding(.horizontal, 5)
