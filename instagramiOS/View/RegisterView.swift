@@ -25,7 +25,7 @@ struct RegisterView: View {
                 Image("plus_photo")
                     .renderingMode(.template)
                     .foregroundColor(.white)
-                    .padding(.top, 50)
+                Spacer()
                 CustomTextField(
                     placeholder: Text("Email").foregroundColor(.white.opacity(0.5)),
                     text: $email,
@@ -62,9 +62,9 @@ struct RegisterView: View {
                             .font(.system(size: 18))
                     }
                 }
-                .padding(.bottom, 16)
                 .foregroundColor(.white)
             }
+            .padding(.top, 40)
             .background(LinearGradient(gradient: Gradient(colors: [Iris, Grape, Vivid, Princeton]), startPoint: .bottomTrailing, endPoint: .topLeading))
             .ignoresSafeArea(.all)
         }

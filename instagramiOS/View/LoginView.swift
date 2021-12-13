@@ -61,7 +61,7 @@ struct LoginView: View {
                             .font(.system(size: 18))
                     }
                 }
-                .padding(.bottom, 16)
+                
                 .foregroundColor(.white)
             }
             .background(LinearGradient(gradient: Gradient(colors: [Iris, Grape, Vivid, Princeton]), startPoint: .bottomTrailing, endPoint: .topLeading))
