@@ -13,58 +13,83 @@ struct BottomTab: View {
         UITabBar.appearance().backgroundColor = UIColor.white
     }
     var body: some View {
-        TabView (selection: $selection){
-            HomeTab()
-                .tabItem {
-                    if selection == 0 {
-                        Image("home_selected")
-                            .renderingMode(.template)
-                            .foregroundColor(Iris)
-                    } else {
-                        Image("home_unselected")
-                    }
-                }.tag(0)
-            SearchTab()
-                .tabItem {
-                    if selection == 1 {
-                        Image("search_selected")
-                            .renderingMode(.template)
-                            .foregroundColor(Grape)
-                    } else {
-                        Image("search_unselected")
-                    }
-                }.tag(1)
-            StoryTab()
-                .tabItem {
-                    if selection == 2 {
-                        Image("home_selected")
-                            .renderingMode(.template)
-                            .foregroundColor(Vivid)
-                    } else {
-                        Image("home_unselected")
-                    }
-                }.tag(2)
-            LikeTab()
-                .tabItem {
-                    if selection == 3 {
-                        Image("like_selected")
-                            .renderingMode(.template)
-                            .foregroundColor(Princeton)
-                    } else {
-                        Image("like_unselected")
-                    }
-                }.tag(3)
-            ProfileTab()
-                .tabItem {
-                    if selection == 4 {
-                        Image("profile_selected")
-                            .renderingMode(.template)
-                            .foregroundColor(Color.purple)
-                    } else {
-                        Image("profile_unselected")
-                    }
-                }.tag(4)
+        NavigationView{
+            TabView (selection: $selection){
+                HomeTab()
+                    .tabItem {
+                        if selection == 0 {
+                            Image("home_selected")
+                                .resizable()
+                                .renderingMode(.template)
+                        } else {
+                            Image("home_selected")
+                                .renderingMode(.template)
+                                .foregroundColor(.gray)
+                        }
+                    }.tag(0)
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+                SearchTab()
+                    .tabItem {
+                        if selection == 1 {
+                            Image("search_selected")
+                                .renderingMode(.template)
+                                .foregroundColor(Grape)
+                        } else {
+                            Image("search_selected")
+                                .renderingMode(.template)
+                                .foregroundColor(.gray)
+                        }
+                    }.tag(1)
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+                StoryTab()
+                    .tabItem {
+                        if selection == 2 {
+                            Image("filmstrip")
+                                .renderingMode(.template)
+                                .foregroundColor(Vivid)
+                        } else {
+                            Image("filmstrip")
+                                .renderingMode(.template)
+                                .foregroundColor(.gray)
+                        }
+                    }.tag(2)
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+                LikeTab()
+                    .tabItem {
+                        if selection == 3 {
+                            Image("like_selected")
+                                .renderingMode(.template)
+                                .foregroundColor(Princeton)
+                        } else {
+                            Image("like_selected")
+                                .renderingMode(.template)
+                                .foregroundColor(.gray)
+                        }
+                    }.tag(3)
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+                ProfileTab()
+                    .tabItem {
+                        if selection == 4 {
+                            Image("profile_selected")
+                                .renderingMode(.template)
+                                .foregroundColor(Color.purple)
+                        } else {
+                            Image("profile_selected")
+                                .renderingMode(.template)
+                                .foregroundColor(.gray)
+                        }
+                    }.tag(4)
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+            }
+            
         }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
 }
 
