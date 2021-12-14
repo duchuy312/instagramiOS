@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-let screenWidth = UIScreen.main.bounds.size.width
-let screenHeight = UIScreen.main.bounds.size.height
 @available(iOS 15.0, *)
 struct LoginView: View {
     @State private var email: String = ""
@@ -24,47 +22,35 @@ struct LoginView: View {
             VStack {
                 Image("Instagram_logo_white").resizable()
                     .frame(width: 250, height: 100)
-                    .padding(.top, 60)
-                    .padding(.bottom, 30)
+                    .padding(.top, screenHeight * 0.08)
+                    .padding(.bottom, screenHeight * 0.04)
                 CustomTextField(
+                    isSecure: false,
                     placeholder: Text("Email").foregroundColor(.white.opacity(0.5)),
                     text: $email,
                     warning: viewModel.emailPrompt(email: email)
                 )
-                SecureTextField(
+                CustomTextField(
+                    isSecure: true,
                     placeholder: Text("Password").foregroundColor(.white.opacity(0.5)),
-                    text: $password
+                    text: $password,
+                    warning: viewModel.emailPrompt(email: email)
                 )
                 NavigationLink(destination: BottomTab(), tag: 1, selection: $selection) {
-                    CustomButton(title: "Login", action: {
+                    CustomButton(title: Strings.login.rawValue, action: {
                         self.selection = 1
                     })
                 }
                 .disabled(disableForm)
-                HStack() {
-                    Text("Forgot your password?")
-                        .font(.system(size: 18))
-                    Text("get help signin")
-                        .fontWeight(.bold)
-                        .font(.system(size: 18))
-                }
-                .padding(.top, 16)
-                .foregroundColor(.white)
+                TextNavigation(text: Strings.forgotPass.rawValue, textBold: Strings.helpForgot.rawValue, desAddress: AnyView(RegisterView(viewModel: ViewModel())))
                 Spacer()
                 Divider()
-                HStack() {
-                    Text("Don't have an account?")
-                        .font(.system(size: 18))
-                    NavigationLink(destination: RegisterView(viewModel: ViewModel())) {
-                        Text("Sign up")
-                            .fontWeight(.bold)
-                            .font(.system(size: 18))
-                    }
-                }
+                TextNavigation(text: Strings.dontHaveAccount.rawValue, textBold: Strings.signup.rawValue, desAddress: AnyView(RegisterView(viewModel: ViewModel())))
+                Spacer()
+                    .frame(height: reSize(maxHeight: 20, minHeight: 4))
                 
-                .foregroundColor(.white)
             }
-            .background(LinearGradient(gradient: Gradient(colors: [Iris, Grape, Vivid, Princeton]), startPoint: .bottomTrailing, endPoint: .topLeading))
+            .background(GradientBG)
             .ignoresSafeArea(.all)
             
         }

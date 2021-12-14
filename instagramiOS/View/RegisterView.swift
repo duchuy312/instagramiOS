@@ -25,28 +25,34 @@ struct RegisterView: View {
                 Image("plus_photo")
                     .renderingMode(.template)
                     .foregroundColor(.white)
-                Spacer()
+                    .padding(.top, reSize(maxHeight: 80, minHeight: 20))
+                    .padding(.bottom, reSize(maxHeight: 40, minHeight: 10))
                 CustomTextField(
+                    isSecure: false,
                     placeholder: Text("Email").foregroundColor(.white.opacity(0.5)),
                     text: $email,
                     warning: viewModel.emailPrompt(email: email)
                 )
-                SecureTextField(
+                CustomTextField(
+                    isSecure: false,
                     placeholder: Text("Password").foregroundColor(.white.opacity(0.5)),
-                    text: $password
+                    text: $password,
+                    warning: viewModel.emailPrompt(email: email)
                 )
                 CustomTextField(
+                    isSecure: false,
                     placeholder: Text("Fullname").foregroundColor(.white.opacity(0.5)),
                     text: $fullname,
                     warning: viewModel.emailPrompt(email: email)
                 )
                 CustomTextField(
+                    isSecure: false,
                     placeholder: Text("Username").foregroundColor(.white.opacity(0.5)),
                     text: $username,
                     warning: viewModel.emailPrompt(email: email)
                 )
                 NavigationLink(destination: LoginView(viewModel: ViewModel()), tag: 1, selection: $selectionRegister) {
-                    CustomButton(title: "Sign Up", action: {
+                    CustomButton(title: Strings.signup.rawValue, action: {
                         self.selectionRegister = 1
                     })
                 }
@@ -54,18 +60,19 @@ struct RegisterView: View {
                 Spacer()
                 Divider()
                 HStack() {
-                    Text("Already have an account?")
+                    Text(Strings.alreadyHaveAccount.rawValue)
                         .font(.system(size: 18))
                     NavigationLink(destination: LoginView(viewModel: ViewModel())) {
-                        Text("Sign in")
+                        Text(Strings.signin.rawValue)
                             .fontWeight(.bold)
                             .font(.system(size: 18))
                     }
                 }
                 .foregroundColor(.white)
+                Spacer()
+                    .frame(height: reSize(maxHeight: 20, minHeight: 4))
             }
-            .padding(.top, 40)
-            .background(LinearGradient(gradient: Gradient(colors: [Iris, Grape, Vivid, Princeton]), startPoint: .bottomTrailing, endPoint: .topLeading))
+            .background(GradientBG)
             .ignoresSafeArea(.all)
         }
         .navigationBarHidden(true)
