@@ -21,35 +21,36 @@ struct RegisterView: View {
     @ObservedObject var viewModel: ViewModel
     var body: some View {
         NavigationView {
-            VStack {
-                Image("plus_photo")
+            VStack() {
+                Image("plus_photo").resizable()
                     .renderingMode(.template)
                     .foregroundColor(.white)
-                    .padding(.top, reSize(maxHeight: 80, minHeight: 20))
-                    .padding(.bottom, reSize(maxHeight: 40, minHeight: 10))
+                    .frame(width: wp(wp: 0.35),height: wp(wp: 0.35))
+                    .padding(.top, reSize(height: 50))
+                    .padding(.bottom, reSize(height: 20))
                 CustomTextField(
                     isSecure: false,
-                    placeholder: Text("Email").foregroundColor(.white.opacity(0.5)),
+                    placeholder: Text("Email"),
                     text: $email,
                     warning: viewModel.emailPrompt(email: email)
                 )
                 CustomTextField(
                     isSecure: false,
-                    placeholder: Text("Password").foregroundColor(.white.opacity(0.5)),
+                    placeholder: Text("Password"),
                     text: $password,
-                    warning: viewModel.emailPrompt(email: email)
+                    warning: viewModel.passwordPrompt(password: password)
                 )
                 CustomTextField(
                     isSecure: false,
-                    placeholder: Text("Fullname").foregroundColor(.white.opacity(0.5)),
+                    placeholder: Text("Fullname"),
                     text: $fullname,
-                    warning: viewModel.emailPrompt(email: email)
+                    warning: ""
                 )
                 CustomTextField(
                     isSecure: false,
-                    placeholder: Text("Username").foregroundColor(.white.opacity(0.5)),
+                    placeholder: Text("Username"),
                     text: $username,
-                    warning: viewModel.emailPrompt(email: email)
+                    warning: ""
                 )
                 NavigationLink(destination: LoginView(viewModel: ViewModel()), tag: 1, selection: $selectionRegister) {
                     CustomButton(title: Strings.signup.rawValue, action: {
@@ -59,18 +60,9 @@ struct RegisterView: View {
                 .disabled(disableForm)
                 Spacer()
                 Divider()
-                HStack() {
-                    Text(Strings.alreadyHaveAccount.rawValue)
-                        .font(.system(size: 18))
-                    NavigationLink(destination: LoginView(viewModel: ViewModel())) {
-                        Text(Strings.signin.rawValue)
-                            .fontWeight(.bold)
-                            .font(.system(size: 18))
-                    }
-                }
-                .foregroundColor(.white)
+                TextNavigation(text: Strings.alreadyHaveAccount.rawValue, textBold: Strings.signin.rawValue, desAddress: AnyView(LoginView(viewModel: ViewModel())))
                 Spacer()
-                    .frame(height: reSize(maxHeight: 20, minHeight: 4))
+                    .frame(height: reSize(height: 20))
             }
             .background(GradientBG)
             .ignoresSafeArea(.all)

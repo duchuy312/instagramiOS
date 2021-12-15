@@ -26,15 +26,15 @@ struct LoginView: View {
                     .padding(.bottom, screenHeight * 0.04)
                 CustomTextField(
                     isSecure: false,
-                    placeholder: Text("Email").foregroundColor(.white.opacity(0.5)),
+                    placeholder: Text("Email"),
                     text: $email,
-                    warning: viewModel.emailPrompt(email: email)
+                    warning: ""
                 )
                 CustomTextField(
                     isSecure: true,
-                    placeholder: Text("Password").foregroundColor(.white.opacity(0.5)),
+                    placeholder: Text("Password"),
                     text: $password,
-                    warning: viewModel.emailPrompt(email: email)
+                    warning: ""
                 )
                 NavigationLink(destination: BottomTab(), tag: 1, selection: $selection) {
                     CustomButton(title: Strings.login.rawValue, action: {
@@ -47,7 +47,7 @@ struct LoginView: View {
                 Divider()
                 TextNavigation(text: Strings.dontHaveAccount.rawValue, textBold: Strings.signup.rawValue, desAddress: AnyView(RegisterView(viewModel: ViewModel())))
                 Spacer()
-                    .frame(height: reSize(maxHeight: 20, minHeight: 4))
+                    .frame(height: reSize(height: 20))
                 
             }
             .background(GradientBG)

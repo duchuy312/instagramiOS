@@ -17,10 +17,18 @@ let Vivid = Color(red: 0.866, green: 0.164, blue: 0.482)
 let Princeton = Color(red: 0.96, green: 0.521, blue: 0.16)
 let GradientBG = LinearGradient(gradient: Gradient(colors: [Iris, Grape, Vivid, Princeton]), startPoint: .bottomTrailing, endPoint: .topLeading)
 
-func reSize(maxHeight: CGFloat, minHeight: CGFloat) -> CGFloat {
-    if screenHeight > 800 {
-        return maxHeight;
+func reSize(height: CGFloat) -> CGFloat {
+    if screenHeight > 740 {
+        return height
     } else {
-        return minHeight;
+        return height / 2.5
     }
+}
+
+func wp(wp: CGFloat) -> CGFloat {
+    return screenWidth * wp
+}
+
+func hp(hp: CGFloat) -> CGFloat {
+    return screenHeight * hp
 }
