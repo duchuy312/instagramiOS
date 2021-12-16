@@ -16,7 +16,10 @@ struct RegisterView: View {
     @State var selectionRegister: Int? = nil
     @State var text = ""
     var disableForm: Bool {
-        email.isEmpty || password.isEmpty || fullname.isEmpty || username.isEmpty
+        !viewModel.emailWarning(email: email).isEmpty ||
+        !viewModel.passwordWarning(password: password).isEmpty ||
+        !viewModel.emptyWarning(text: username).isEmpty ||
+        !viewModel.emptyWarning(text: fullname).isEmpty
     }
     @ObservedObject var viewModel: ViewModel
     var body: some View {
@@ -32,25 +35,25 @@ struct RegisterView: View {
                     isSecure: false,
                     placeholder: Text("Email"),
                     text: $email,
-                    warning: viewModel.emailPrompt(email: email)
+                    warning: viewModel.emailWarning(email: email)
                 )
                 CustomTextField(
                     isSecure: false,
                     placeholder: Text("Password"),
                     text: $password,
-                    warning: viewModel.passwordPrompt(password: password)
+                    warning: viewModel.passwordWarning(password: password)
                 )
                 CustomTextField(
                     isSecure: false,
                     placeholder: Text("Fullname"),
                     text: $fullname,
-                    warning: viewModel.fullnamePrompt(fullname: fullname)
+                    warning: viewModel.emptyWarning(text: fullname)
                 )
                 CustomTextField(
                     isSecure: false,
                     placeholder: Text("Username"),
                     text: $username,
-                    warning: viewModel.usernamePrompt(username: username)
+                    warning: viewModel.emptyWarning(text: username)
                 )
                 NavigationLink(destination: BottomTab(), tag: 1, selection: $selectionRegister) {
                     CustomButton(title: Strings.signup.rawValue, action: {

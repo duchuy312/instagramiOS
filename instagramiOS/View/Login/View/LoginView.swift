@@ -30,13 +30,13 @@ struct LoginView: View {
                     isSecure: false,
                     placeholder: Text("Email"),
                     text: $email,
-                    warning: ""
+                    warning: viewModel.emptyWarning(text: email)
                 )
                 CustomTextField(
                     isSecure: true,
                     placeholder: Text("Password"),
                     text: $password,
-                    warning: ""
+                    warning: viewModel.emptyWarning(text: password)
                 )
                 NavigationLink(destination: BottomTab(), tag: 1, selection: $selection) {
                     CustomButton(title: Strings.login.rawValue, action: {

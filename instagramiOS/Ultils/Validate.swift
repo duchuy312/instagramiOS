@@ -23,28 +23,22 @@ func isValidPassword(password: String) -> Bool {
 
 class ViewModel: ObservableObject
 {
-    func emailPrompt(email: String) -> String {
+    func emailWarning(email: String) -> String {
         if isValidEmail(email: email) {
             return ""
         }
         return Strings.emailValid.rawValue
     }
     
-    func passwordPrompt(password: String) -> String {
+    func passwordWarning(password: String) -> String {
         if isValidPassword(password: password) {
             return ""
         }
         return Strings.strongPassword.rawValue
     }
-    func fullnamePrompt(fullname: String) -> String {
-        if !fullname.isEmpty {
-            return ""
-        }
-        return Strings.requiredField.rawValue
-    }
     
-    func usernamePrompt(username: String) -> String {
-        if !username.isEmpty {
+    func emptyWarning(text: String) -> String {
+        if !text.isEmpty {
             return ""
         }
         return Strings.requiredField.rawValue
