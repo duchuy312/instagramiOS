@@ -60,18 +60,17 @@ struct CustomTextField: View {
             }
             if warning != "" {
                 if isFieldIsFocused {
-                    Text("").frame(height: 12)
+                    Text("").frame(height: 10)
                 } else if (!isInit) {
                     Text(warning)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .fixedSize(horizontal: false, vertical: true)
                         .font(.system(size: 12))
-                        .frame(height: 12)
+                        .frame(height: 17)
                         .padding(.horizontal, 10)
-                        .padding(.vertical, 5)
                 } else {
-                    Text("").frame(height: 12)
+                    Text("").frame(height: 10)
                 }
             } else {
                 Text("").frame(height: 10)

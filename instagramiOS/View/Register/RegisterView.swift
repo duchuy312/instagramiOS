@@ -29,7 +29,7 @@ struct RegisterView: View {
                     .renderingMode(.template)
                     .foregroundColor(.white)
                     .frame(width: wp(wp: 0.35),height: wp(wp: 0.35))
-                    .padding(.top, reSize(height: 50))
+                    .padding(.top, reSize(height: 40))
                     .padding(.bottom, reSize(height: 20))
                 CustomTextField(
                     isSecure: false,
@@ -64,8 +64,6 @@ struct RegisterView: View {
                 Spacer()
                 Divider()
                 TextNavigation(text: Strings.alreadyHaveAccount.rawValue, textBold: Strings.signin.rawValue, desAddress: AnyView(LoginView(viewModel: ViewModel())))
-                Spacer()
-                    .frame(height: reSize(height: 20))
             }
             .background(GradientBG)
             .ignoresSafeArea(.all)

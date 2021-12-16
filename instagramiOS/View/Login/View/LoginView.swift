@@ -24,8 +24,8 @@ struct LoginView: View {
             VStack {
                 Image("Instagram_logo_white").resizable()
                     .frame(width: 250, height: 100)
-                    .padding(.top, screenHeight * 0.08)
-                    .padding(.bottom, screenHeight * 0.04)
+                    .padding(.top, reSize(height: 80))
+                    .padding(.bottom, reSize(height: 40))
                 CustomTextField(
                     isSecure: false,
                     placeholder: Text("Email"),
@@ -48,8 +48,6 @@ struct LoginView: View {
                 Spacer()
                 Divider()
                 TextNavigation(text: Strings.dontHaveAccount.rawValue, textBold: Strings.signup.rawValue, desAddress: AnyView(RegisterView(viewModel: ViewModel())))
-                Spacer()
-                    .frame(height: reSize(height: 20))
                 
             }
             .background(GradientBG)

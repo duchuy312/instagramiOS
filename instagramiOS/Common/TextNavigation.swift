@@ -23,6 +23,7 @@ struct TextNavigation: View {
             }
         }
         .foregroundColor(.white)
+        .padding(.bottom, reSize(height: 20))
     }
 }
 
