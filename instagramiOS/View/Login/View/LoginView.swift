@@ -18,7 +18,7 @@ struct LoginView: View {
         email.isEmpty || password.isEmpty
     }
     @ObservedObject var viewModel: ViewModel
-    
+    let API = ApiManager()
     var body: some View {
         NavigationView {
             VStack {
@@ -38,12 +38,9 @@ struct LoginView: View {
                     text: $password,
                     warning: viewModel.emptyWarning(text: password)
                 )
-                NavigationLink(destination: BottomTab(), tag: 1, selection: $selection) {
                     CustomButton(title: Strings.login.rawValue, action: {
-                        self.selection = 1
+                        self.API.signinAPI()
                     })
-                }
-                .disabled(disableForm)
                 TextNavigation(text: Strings.forgotPass.rawValue, textBold: Strings.helpForgot.rawValue, desAddress: AnyView(RegisterView(viewModel: ViewModel())))
                 Spacer()
                 Divider()

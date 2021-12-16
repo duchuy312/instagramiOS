@@ -15,10 +15,15 @@ let params: [String: [String]] = [
 ]
 
 class ApiManager{
-    func registerAPI() {
-        AF.request(signin_Url, method: .post, parameters: params, encoder: URLEncodedFormParameterEncoder.default)
-            .responseData {
-                response in print(response)
+    func signinAPI() {
+        print("saDASDASDADASD")
+        AF.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(Data("one".utf8), withName: "one")
+            multipartFormData.append(Data("two".utf8), withName: "two")
+        }, to: signin_Url)
+            .responseJSON{ response in
+                debugPrint(response)
             }
     }
+    
 }
