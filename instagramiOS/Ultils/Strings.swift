@@ -15,5 +15,8 @@ enum Strings: String {
          dontHaveAccount = "Don't have an account?",
          forgotPass = "Forgot your password?",
          helpForgot = "get help signin",
-         alreadyHaveAccount = "Already have an account?"
+         alreadyHaveAccount = "Already have an account?",
+         requiredField = "This field cannot be empty",
+         strongPassword = "Password must be between 8 and 15 characters containing at least one number and one capital letter",
+         emailValid = "Email has in valid!"
 }

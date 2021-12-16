@@ -74,7 +74,7 @@ struct CustomTextField: View {
                     Text("").frame(height: 12)
                 }
             } else {
-                Text("").frame(height: 12)
+                Text("").frame(height: 10)
             }
             
         }

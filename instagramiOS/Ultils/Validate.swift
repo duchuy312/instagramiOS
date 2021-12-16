@@ -27,18 +27,30 @@ class ViewModel: ObservableObject
         if isValidEmail(email: email) {
             return ""
         }
-        return "Email has in valid!"
+        return Strings.emailValid.rawValue
     }
     
     func passwordPrompt(password: String) -> String {
         if isValidPassword(password: password) {
             return ""
         }
-        return "Password must be between 8 and 15 characters containing at least one number and one capital letter"
+        return Strings.strongPassword.rawValue
+    }
+    func fullnamePrompt(fullname: String) -> String {
+        if !fullname.isEmpty {
+            return ""
+        }
+        return Strings.requiredField.rawValue
     }
     
-    func login(isEmailValid: String, isPasswordValid: String) -> Bool {
-        if isEmailValid.isEmpty && isPasswordValid.isEmpty {
+    func usernamePrompt(username: String) -> String {
+        if !username.isEmpty {
+            return ""
+        }
+        return Strings.requiredField.rawValue
+    }
+    func login(email: String, password: String) -> Bool {
+        if email.isEmpty && password.isEmpty {
             // TODO: call api login here! and return response
             return true
         } else {

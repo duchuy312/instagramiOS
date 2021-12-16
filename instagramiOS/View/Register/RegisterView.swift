@@ -44,15 +44,15 @@ struct RegisterView: View {
                     isSecure: false,
                     placeholder: Text("Fullname"),
                     text: $fullname,
-                    warning: ""
+                    warning: viewModel.fullnamePrompt(fullname: fullname)
                 )
                 CustomTextField(
                     isSecure: false,
                     placeholder: Text("Username"),
                     text: $username,
-                    warning: ""
+                    warning: viewModel.usernamePrompt(username: username)
                 )
-                NavigationLink(destination: LoginView(viewModel: ViewModel()), tag: 1, selection: $selectionRegister) {
+                NavigationLink(destination: BottomTab(), tag: 1, selection: $selectionRegister) {
                     CustomButton(title: Strings.signup.rawValue, action: {
                         self.selectionRegister = 1
                     })

@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Alamofire
 
 @available(iOS 15.0, *)
 struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State var selection: Int? = nil
+    @State private var isActiveNavigate = false
     var disableForm: Bool {
         email.isEmpty || password.isEmpty
     }
