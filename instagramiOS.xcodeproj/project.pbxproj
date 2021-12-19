@@ -131,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				00ED8CB6276B180A009A6D91 /* Register */,
-				00ED8CB5276B17B4009A6D91 /* BottomNavigation */,
 				00B3E93B2768A0A400A29AF2 /* Login */,
 				00936B032767344800B40AE3 /* ProfileTab */,
 				00936B022767343400B40AE3 /* FilmTab */,
@@ -190,20 +189,20 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		00ED8CB5276B17B4009A6D91 /* BottomNavigation */ = {
-			isa = PBXGroup;
-			children = (
-				0078CDE32760B54600D9DB67 /* BottomTabView.swift */,
-			);
-			path = BottomNavigation;
-			sourceTree = "<group>";
-		};
 		00ED8CB6276B180A009A6D91 /* Register */ = {
 			isa = PBXGroup;
 			children = (
 				0019EBB827609A86000B6CFA /* RegisterView.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		1866ABFD276FF9E800C52638 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				0078CDE32760B54600D9DB67 /* BottomTabView.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		189D62A9275E4B91005EC637 = {
@@ -225,13 +224,14 @@
 		189D62B4275E4B92005EC637 /* instagramiOS */ = {
 			isa = PBXGroup;
 			children = (
-				000BCD91276AD74A008278B8 /* Service */,
 				189D62B5275E4B92005EC637 /* instagramiOSApp.swift */,
-				006F511A2761FEC50095E649 /* Info.plist */,
+				1866ABFD276FF9E800C52638 /* Navigation */,
+				000BCD91276AD74A008278B8 /* Service */,
 				00936AFF2767332A00B40AE3 /* View */,
 				00893FC52760534400BA5653 /* Common */,
 				008A4BE9276330BE00CCB2E7 /* Ultils */,
 				189D62B9275E4B94005EC637 /* Assets.xcassets */,
+				006F511A2761FEC50095E649 /* Info.plist */,
 				189D62BB275E4B94005EC637 /* Preview Content */,
 			);
 			path = instagramiOS;
