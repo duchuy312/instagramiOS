@@ -25,45 +25,47 @@ struct RegisterView: View {
     var body: some View {
         NavigationView {
             VStack() {
-                Image("plus_photo").resizable()
-                    .renderingMode(.template)
-                    .foregroundColor(.white)
-                    .frame(width: wp(wp: 0.35),height: wp(wp: 0.35))
-                    .padding(.top, reSize(height: 40))
-                    .padding(.bottom, reSize(height: 20))
-                CustomTextField(
-                    isSecure: false,
-                    placeholder: Text("Email"),
-                    text: $email,
-                    warning: viewModel.emailWarning(email: email)
-                )
-                CustomTextField(
-                    isSecure: false,
-                    placeholder: Text("Password"),
-                    text: $password,
-                    warning: viewModel.passwordWarning(password: password)
-                )
-                CustomTextField(
-                    isSecure: false,
-                    placeholder: Text("Fullname"),
-                    text: $fullname,
-                    warning: viewModel.emptyWarning(text: fullname)
-                )
-                CustomTextField(
-                    isSecure: false,
-                    placeholder: Text("Username"),
-                    text: $username,
-                    warning: viewModel.emptyWarning(text: username)
-                )
-                NavigationLink(destination: BottomTab(), tag: 1, selection: $selectionRegister) {
-                    CustomButton(title: Strings.signup.rawValue, action: {
-                        self.selectionRegister = 1
-                    })
+                VStack() {
+                    Image("plus_photo").resizable()
+                        .renderingMode(.template)
+                        .foregroundColor(.white)
+                        .frame(width: wp(wp: 0.35),height: wp(wp: 0.35))
+                        .padding(.vertical, 50)
+                    CustomTextField(
+                        isSecure: false,
+                        placeholder: Text("Email"),
+                        text: $email,
+                        warning: viewModel.emailWarning(email: email)
+                    )
+                    CustomTextField(
+                        isSecure: false,
+                        placeholder: Text("Password"),
+                        text: $password,
+                        warning: viewModel.passwordWarning(password: password)
+                    )
+                    CustomTextField(
+                        isSecure: false,
+                        placeholder: Text("Fullname"),
+                        text: $fullname,
+                        warning: viewModel.emptyWarning(text: fullname)
+                    )
+                    CustomTextField(
+                        isSecure: false,
+                        placeholder: Text("Username"),
+                        text: $username,
+                        warning: viewModel.emptyWarning(text: username)
+                    )
+                    NavigationLink(destination: BottomTab(), tag: 1, selection: $selectionRegister) {
+                        CustomButton(title: Strings.signup.rawValue, action: {
+                            self.selectionRegister = 1
+                        })
+                    }
+                    .disabled(disableForm)
+                    Spacer()
+                    Divider()
+                    TextNavigation(text: Strings.alreadyHaveAccount.rawValue, textBold: Strings.signin.rawValue, desAddress: AnyView(LoginView(viewModel: ViewModel())))
                 }
-                .disabled(disableForm)
-                Spacer()
-                Divider()
-                TextNavigation(text: Strings.alreadyHaveAccount.rawValue, textBold: Strings.signin.rawValue, desAddress: AnyView(LoginView(viewModel: ViewModel())))
+                
             }
             .background(GradientBG)
             .ignoresSafeArea(.all)
@@ -72,13 +74,3 @@ struct RegisterView: View {
     }
 }
 
-struct ContentView_Register: PreviewProvider {
-    static var previews: some View {
-        if #available(iOS 15.0, *) {
-            RegisterView(viewModel: ViewModel())
-                .previewInterfaceOrientation(.portrait)
-        } else {
-            // Fallback on earlier versions
-        }
-    }
-}

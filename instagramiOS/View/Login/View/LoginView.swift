@@ -19,6 +19,9 @@ struct LoginView: View {
     }
     @ObservedObject var viewModel: ViewModel
     let API = ApiManager()
+    func onLogin() -> Void {
+//        viewModel.login(email: viewModel.email, password: viewModel.password)
+    }
     var body: some View {
         NavigationView {
             VStack {
@@ -38,9 +41,11 @@ struct LoginView: View {
                     text: $password,
                     warning: viewModel.emptyWarning(text: password)
                 )
+                NavigationLink(destination: BottomTab(), tag: 1, selection: $selection) {
                     CustomButton(title: Strings.login.rawValue, action: {
-                        self.API.signinAPI()
+                        self.selection = 1
                     })
+                }.disabled(disableForm)
                 TextNavigation(text: Strings.forgotPass.rawValue, textBold: Strings.helpForgot.rawValue, desAddress: AnyView(RegisterView(viewModel: ViewModel())))
                 Spacer()
                 Divider()
@@ -55,13 +60,3 @@ struct LoginView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        if #available(iOS 15.0, *) {
-            LoginView(viewModel: ViewModel())
-                .previewInterfaceOrientation(.portrait)
-        } else {
-            // Fallback on earlier versions
-        }
-    }
-}

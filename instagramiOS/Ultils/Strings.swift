@@ -18,5 +18,6 @@ enum Strings: String {
          alreadyHaveAccount = "Already have an account?",
          requiredField = "This field cannot be empty",
          strongPassword = "Password must have at least 8 characters, at least one number and one capital letter",
-         emailValid = "Email has in valid!"
+         emailValid = "Email has in valid!",
+         placeholderSearch = "Search"
 }

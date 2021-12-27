@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct SearchTab: View {
+    @State var searchText = ""
+    
     var body: some View {
-        VStack {
-            Spacer()
-            Divider()
+        VStack(alignment: .leading) {
+            SearchBar(searchText: $searchText)
+            ScrollView(.vertical) {
+                
+                ImageGrid()
+            }
         }
-        .background(Grape)
-        .ignoresSafeArea(.all)
     }
 }
 
