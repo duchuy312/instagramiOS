@@ -14,6 +14,7 @@ struct LoginView: View {
     @State private var password: String = ""
     @State var selection: Int? = nil
     @State private var isActiveNavigate = false
+    @State var isLoading = false
     var disableForm: Bool {
         email.isEmpty || password.isEmpty
     }
@@ -24,6 +25,7 @@ struct LoginView: View {
     }
     var body: some View {
         NavigationView {
+            LoadingView(isShowing: $isLoading) {
             VStack {
                 Image("Instagram_logo_white").resizable()
                     .frame(width: 250, height: 100)
@@ -47,6 +49,15 @@ struct LoginView: View {
                     })
                 }.disabled(disableForm)
                 TextNavigation(text: Strings.forgotPass.rawValue, textBold: Strings.helpForgot.rawValue, desAddress: AnyView(RegisterView(viewModel: ViewModel())))
+                Button(action: {
+                    isLoading = true
+                    // Mock some network request or other task
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        isLoading = false
+                    }
+                }, label: {
+                    Text("Tap Me!")
+                })
                 Spacer()
                 Divider()
                 TextNavigation(text: Strings.dontHaveAccount.rawValue, textBold: Strings.signup.rawValue, desAddress: AnyView(RegisterView(viewModel: ViewModel())))
@@ -54,7 +65,7 @@ struct LoginView: View {
             }
             .background(GradientBG)
             .ignoresSafeArea(.all)
-            
+            }
         }
         .navigationBarHidden(true)
     }
