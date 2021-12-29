@@ -12,3 +12,18 @@ struct FollowModel: Identifiable {
     var followNumber: String
     var followType: String
 }
+
+struct LikeModel: Decodable, Identifiable {
+    var id = UUID()
+    var userImage: String
+    var contentAction: String
+    var timeActionAgo: String
+    var postImage: String
+    var activityType: ActivityType
+}
+
+enum ActivityType: Decodable {
+    case likePost
+    case following
+    case mayKnow
+}

@@ -33,6 +33,7 @@
 		180883D22778BF30000D3BC1 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180883D12778BF30000D3BC1 /* AuthModel.swift */; };
 		18171748277A03D100BEABAF /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18171747277A03D100BEABAF /* SearchBar.swift */; };
 		1817174A277A05E300BEABAF /* ImageGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18171749277A05E300BEABAF /* ImageGrid.swift */; };
+		188AF163277D228B007A2CEF /* ItemLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188AF162277D228B007A2CEF /* ItemLike.swift */; };
 		189D62B6275E4B92005EC637 /* instagramiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D62B5275E4B92005EC637 /* instagramiOSApp.swift */; };
 		189D62B8275E4B92005EC637 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D62B7275E4B92005EC637 /* LoginView.swift */; };
 		189D62BA275E4B94005EC637 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 189D62B9275E4B94005EC637 /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		180883D12778BF30000D3BC1 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		18171747277A03D100BEABAF /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		18171749277A05E300BEABAF /* ImageGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGrid.swift; sourceTree = "<group>"; };
+		188AF162277D228B007A2CEF /* ItemLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLike.swift; sourceTree = "<group>"; };
 		189D62B2275E4B92005EC637 /* instagramiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagramiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		189D62B5275E4B92005EC637 /* instagramiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instagramiOSApp.swift; sourceTree = "<group>"; };
 		189D62B7275E4B92005EC637 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		00936B012767342800B40AE3 /* LikeTab */ = {
 			isa = PBXGroup;
 			children = (
+				188AF161277D225D007A2CEF /* Component */,
 				0078CDEC2760C02600D9DB67 /* LikeTab.swift */,
 			);
 			path = LikeTab;
@@ -245,6 +248,14 @@
 			children = (
 				18171747277A03D100BEABAF /* SearchBar.swift */,
 				18171749277A05E300BEABAF /* ImageGrid.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		188AF161277D225D007A2CEF /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				188AF162277D228B007A2CEF /* ItemLike.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -387,6 +398,7 @@
 				00B3E9402768A15500A29AF2 /* TextNavigation.swift in Sources */,
 				000BCD99276AE2B8008278B8 /* APIManager.swift in Sources */,
 				008A4BED2763342B00CCB2E7 /* Validate.swift in Sources */,
+				188AF163277D228B007A2CEF /* ItemLike.swift in Sources */,
 				0079B8B32761A3B3005565E5 /* AuthCustomButton.swift in Sources */,
 				00893FC72760539400BA5653 /* AuthTextField.swift in Sources */,
 				189D62B6275E4B92005EC637 /* instagramiOSApp.swift in Sources */,

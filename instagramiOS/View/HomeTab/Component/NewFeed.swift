@@ -36,26 +36,57 @@ struct NewFeed: View {
                             .clipShape(Circle())
                             .overlay(
                                 Circle().stroke(Color.white, lineWidth: 4))
-                            .frame(width: 50, height: 50, alignment: .leading)
+                            .frame(width: 40, height: 50, alignment: .leading)
                         Text(timeline.name)
                             .fontWeight(.bold)
                         Spacer()
-                        Image(systemName: "list.bullet")
+                        Image("dots")
                     }
                         .padding(.horizontal, 5)
                     Divider()
-                    Image(timeline.post_image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: UIScreen.main.bounds.width, alignment: .center)
-                        .clipShape(Rectangle())
+                    if #available(iOS 15.0, *) {
+                        AsyncImage(url: URL(string: "https://picsum.photos/200")) { image in
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: UIScreen.main.bounds.width, alignment: .center)
+                                .clipShape(Rectangle())
+                            
+                        }
+                    placeholder: {
+                            Image("blankpage")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: UIScreen.main.bounds.width, alignment: .center)
+                            .clipShape(Rectangle())
+                        }
+                        .padding(.vertical, 3)
+                        .padding(.horizontal, 1)
+                    } else {
+                        // Fallback on earlier versions
+                    }
                     Divider()
+
+                    HStack(){
+                        ButtonNewfeed(action: {}, image: "like_unselected")
+                        ButtonNewfeed(action: {}, image: "comment")
+                        ButtonNewfeed(action: {}, image: "send2")
+                        Spacer()
+                        Button(action: {}, label:  {
+                            Image("ribbon")
+                                .resizable()
+                                .frame(width: 18, height: 22)
+                        })
+                    }
+                    .padding(5)
                     Group {
                         Text(timeline.name).fontWeight(.bold) +
                         Text(timeline.post)
+                        Text(timeline.name).fontWeight(.bold) + Text(" and others liked").fontWeight(.bold)
                     }
                         .padding(.horizontal, 5)
                         .frame(width: UIScreen.main.bounds.width, alignment: .leading)
+                    
                 }
             }
         }
@@ -66,4 +97,18 @@ struct TimelineView_Previews: PreviewProvider {
     static var previews: some View {
         NewFeed(timelines: timelines)
     }
+}
+
+struct ButtonNewfeed: View {
+    var action: () -> Void
+    var image: String
+    var body: some View {
+        Button(action: action, label:  {
+            Image(image)
+                .resizable()
+                .frame(width: 20, height: 20)
+                .padding(.horizontal, 2)
+        })
+    }
+    
 }

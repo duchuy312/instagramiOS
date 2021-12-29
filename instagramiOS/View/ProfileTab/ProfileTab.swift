@@ -34,19 +34,19 @@ struct ProfileTab: View {
                     Text("info4")
                     Text("info5")
                     Text("info6")
-                    HStack(alignment: .center) {
+                    HStack() {
                         ButtonText(action: {}, buttonWidth: buttonWidth, buttonText: "Edit Profile")
                         Spacer()
                         ButtonText(action: {}, buttonWidth: buttonWidth, buttonText: "Saved")
                     }
                     HStack(alignment: .center) {
-                        ButtonImage(action: {}, image: "list")
+                        ButtonImage(action: {}, image: "grid-1")
                         Spacer()
-                        ButtonImage(action: {}, image: "list")
+                        ButtonImage(action: {}, image: "filmstrip")
                         Spacer()
-                        ButtonImage(action: {}, image: "list")
+                        ButtonImage(action: {}, image: "user-tag")
                     }
-                    .padding(.horizontal, 60)
+                    .padding(.horizontal, 30)
                     .padding(.vertical, 10)
                 }
                 .padding(.horizontal, 20)
@@ -78,10 +78,10 @@ struct ButtonText: View {
     var body: some View {
         Button(action: action, label: {
             Text(buttonText)
-                .frame(width: buttonWidth, height: 30)
+                .frame(width: buttonWidth, height: 35)
                 .foregroundColor(.black)
                 .border(Color.gray, width: 1)
-                .cornerRadius(4)
+                .cornerRadius(2)
                 .padding(.horizontal, 10)
         })
     }
@@ -93,7 +93,7 @@ struct ButtonImage: View {
         Button(action: action, label:  {
             Image(image)
                 .resizable()
-                .frame(width: 30, height: 30)
+                .frame(width: 40, height: 40)
         })
     }
 }
