@@ -18,19 +18,20 @@ struct ImageGrid: View {
     var body: some View {
         LazyVGrid(columns: gridItemLayout, alignment: .center, spacing: 5) {
             ForEach(0..<100) { index in
-                let isHorizontalPadding: Bool = (((index - 1) % 3) == 0)
                 if #available(iOS 15.0, *) {
                     AsyncImage(url: URL(string: "https://picsum.photos/200")) { image in
                         image
-                        
-                    } placeholder: {
-                        Image("newfeed")
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 50, height: 50)
+                        
+                    }
+                placeholder: {
+                        Image("blankpage")
+                            .resizable()
+                            .scaledToFill()
                     }
                     .padding(.vertical, 3)
-                    .padding(.horizontal, isHorizontalPadding ? 2 : 0)
+                    .padding(.horizontal, 1)
                 } else {
                     // Fallback on earlier versions
                 }

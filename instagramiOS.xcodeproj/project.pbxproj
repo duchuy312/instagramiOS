@@ -10,6 +10,9 @@
 		000BCD97276AD90D008278B8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 000BCD96276AD90D008278B8 /* Alamofire */; };
 		000BCD99276AE2B8008278B8 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000BCD98276AE2B8008278B8 /* APIManager.swift */; };
 		0019EBB927609A86000B6CFA /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0019EBB827609A86000B6CFA /* RegisterView.swift */; };
+		001EFA11277C6D8B0017FA29 /* HeaderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001EFA10277C6D8B0017FA29 /* HeaderBar.swift */; };
+		001EFA13277C70A20017FA29 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001EFA12277C70A20017FA29 /* FakeData.swift */; };
+		001EFA15277C70D70017FA29 /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001EFA14277C70D70017FA29 /* CommonModel.swift */; };
 		004C811F277AA1D200977690 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C811E277AA1D200977690 /* LoadingView.swift */; };
 		0078CDE42760B54600D9DB67 /* BottomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0078CDE32760B54600D9DB67 /* BottomTabView.swift */; };
 		0078CDE72760BEA100D9DB67 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0078CDE62760BEA100D9DB67 /* HomeTabView.swift */; };
@@ -39,6 +42,9 @@
 /* Begin PBXFileReference section */
 		000BCD98276AE2B8008278B8 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		0019EBB827609A86000B6CFA /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		001EFA10277C6D8B0017FA29 /* HeaderBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBar.swift; sourceTree = "<group>"; };
+		001EFA12277C70A20017FA29 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
+		001EFA14277C70D70017FA29 /* CommonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
 		004C811E277AA1D200977690 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		006F511A2761FEC50095E649 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0078CDE32760B54600D9DB67 /* BottomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabView.swift; sourceTree = "<group>"; };
@@ -87,6 +93,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		001EFA0F277C6D720017FA29 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				001EFA10277C6D8B0017FA29 /* HeaderBar.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		00893FC52760534400BA5653 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +118,7 @@
 				008A4BEA2763310800CCB2E7 /* ColorAndSize.swift */,
 				008A4BEC2763342B00CCB2E7 /* Validate.swift */,
 				007E35B02768749B00921DBB /* Strings.swift */,
+				001EFA12277C70A20017FA29 /* FakeData.swift */,
 			);
 			path = Ultils;
 			sourceTree = "<group>";
@@ -179,6 +194,7 @@
 		00936B032767344800B40AE3 /* ProfileTab */ = {
 			isa = PBXGroup;
 			children = (
+				001EFA0F277C6D720017FA29 /* Component */,
 				0078CDEE2760C03E00D9DB67 /* ProfileTab.swift */,
 			);
 			path = ProfileTab;
@@ -212,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				180883D12778BF30000D3BC1 /* AuthModel.swift */,
+				001EFA14277C70D70017FA29 /* CommonModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -359,8 +376,11 @@
 				0019EBB927609A86000B6CFA /* RegisterView.swift in Sources */,
 				00936AFA2766F3AB00B40AE3 /* HeaderView.swift in Sources */,
 				00936AF82766F01500B40AE3 /* StoryView.swift in Sources */,
+				001EFA13277C70A20017FA29 /* FakeData.swift in Sources */,
+				001EFA15277C70D70017FA29 /* CommonModel.swift in Sources */,
 				1817174A277A05E300BEABAF /* ImageGrid.swift in Sources */,
 				18171748277A03D100BEABAF /* SearchBar.swift in Sources */,
+				001EFA11277C6D8B0017FA29 /* HeaderBar.swift in Sources */,
 				0078CDED2760C02600D9DB67 /* LikeTab.swift in Sources */,
 				0078CDEF2760C03E00D9DB67 /* ProfileTab.swift in Sources */,
 				0078CDE42760B54600D9DB67 /* BottomTabView.swift in Sources */,
