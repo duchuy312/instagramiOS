@@ -25,6 +25,13 @@ struct MessageSignUp: Codable {
     let success: String
 }
 
+struct Setting {
+    static let isLoginKey = "isLogin"
+}
+
+enum DefaultSettings {
+    static let isLoged = false
+}
 
 enum Settings: String {
     case isLogined

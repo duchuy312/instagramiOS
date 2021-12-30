@@ -10,6 +10,7 @@ import Alamofire
 
 @available(iOS 15.0, *)
 struct LoginView: View {
+    @AppStorage(Setting.isLoginKey) var isLogin = DefaultSettings.isLoged
     @State private var email: String = ""
     @State private var password: String = ""
     @State var selection: Int? = nil
@@ -20,8 +21,10 @@ struct LoginView: View {
     }
     @ObservedObject var viewModel: ViewModel
     let API = ApiManager()
-    func onLogin() -> Void {
-//        viewModel.login(email: viewModel.email, password: viewModel.password)
+
+    func onLogin() {
+        self.selection = 1
+        self.isLogin = true
     }
     var body: some View {
         NavigationView {
@@ -44,9 +47,7 @@ struct LoginView: View {
                     warning: viewModel.emptyWarning(text: password)
                 )
                 NavigationLink(destination: BottomTab(), tag: 1, selection: $selection) {
-                    CustomButton(title: Strings.login.rawValue, action: {
-                        self.selection = 1
-                    })
+                    CustomButton(title: Strings.login.rawValue, action: onLogin)
                 }.disabled(disableForm)
                 TextNavigation(text: Strings.forgotPass.rawValue, textBold: Strings.helpForgot.rawValue, desAddress: AnyView(RegisterView(viewModel: ViewModel())))
                 Button(action: {

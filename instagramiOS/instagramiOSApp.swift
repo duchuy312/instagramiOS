@@ -9,13 +9,15 @@ import SwiftUI
 
 @main
 struct instagramiOSApp: App {
+    @AppStorage(Setting.isLoginKey) var isLogin = DefaultSettings.isLoged
     var body: some Scene {
         WindowGroup {
-            if #available(iOS 15.0, *) {
-                LoginView(viewModel: ViewModel())
+            if isLogin {
+                BottomTab()
             } else {
-                // Fallback on earlier versions
+                LoginView(viewModel: ViewModel())
             }
+                
         }
     }
 }

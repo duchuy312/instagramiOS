@@ -103,7 +103,7 @@ struct PlayerView : View {
                     Player(player: self.data[i].player)
                     // full screensize because were going to make paging...
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                        .offset(y: -5)
+                        .offset(y: -10)
                     
                     if self.data[i].replay{
                         
