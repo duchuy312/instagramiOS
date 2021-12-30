@@ -8,7 +8,6 @@
 import SwiftUI
 @available(iOS 15.0, *)
 struct ItemLike: View {
-    var likeModel: LikeModel
     
     var body: some View {
         HStack(alignment: .center) {
@@ -30,21 +29,21 @@ struct ItemLike: View {
             
             Spacer()
             
-            switch likeModel.activityType {
-            case .likePost:
-                AsyncImage(url: URL(string: "https://picsum.photos/200")) { image in
-                    image.resizable()
-                        .frame(width: 40, height: 40)
-                } placeholder: {
-                    Image("blankpage").resizable()
-                        .frame(width: 40, height: 40)
-                }
-                
-            case .mayKnow:
+//            switch likeModel.activityType {
+//            case .likePost:
+//                AsyncImage(url: URL(string: "https://picsum.photos/200")) { image in
+//                    image.resizable()
+//                        .frame(width: 40, height: 40)
+//                } placeholder: {
+//                    Image("blankpage").resizable()
+//                        .frame(width: 40, height: 40)
+//                }
+//
+//            case .mayKnow:
                 ActivityButton(action: {}, buttonText: "Follow")
-            case .following:
-                ActivityButton(action: {}, buttonText: "Following")
-            }
+//            case .following:
+//                ActivityButton(action: {}, buttonText: "Following")
+//            }
         }
         .padding(.vertical, 5)
     }
@@ -53,8 +52,11 @@ struct ItemLike: View {
 struct ItemLike_Previews: PreviewProvider {
     
     static var previews: some View {
-        let likeModel = LikeModel(activityType: ActivityType.mayKnow)
-        ItemLike(likeModel: likeModel)
+        if #available(iOS 15.0, *) {
+            ItemLike()
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }
 
