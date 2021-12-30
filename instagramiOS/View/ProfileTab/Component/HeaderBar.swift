@@ -9,28 +9,34 @@ import SwiftUI
 
 struct HeaderBarLike: View {
     var body: some View {
-            HStack{
-                Text("Pankaj Gaikar")
-                    .font(.system(size: 20)).fontWeight(.bold)
-                Spacer()
-                HStack {
+        HStack{
+            Text("Pankaj Gaikar")
+                .font(.system(size: 20)).fontWeight(.bold)
+            Spacer()
+            HStack {
+                Button(action: {}, label: {
                     Image("plus_unselected")
                         .resizable()
                         .renderingMode(.template)
                         .foregroundColor(.black)
                         .frame(width: 30, height: 30)
-                    Spacer()
-                    Image("list")
+                })
+                
+                Spacer()
+                Button(action: {}, label: {
+                    Image("menu")
                         .resizable()
                         .renderingMode(.template)
                         .foregroundColor(.black)
-                        .frame(width: 25, height: 25)
-                }
-                .frame(width: 80, height: 30)
+                        .frame(width: 30, height: 30)
+                })
                 
             }
-            .padding(.horizontal, 10)
-            .padding(.bottom, 10)
+            .frame(width: 80, height: 30)
+            
+        }
+        .padding(.horizontal, 10)
+        .padding(.bottom, 10)
     }
 }
 

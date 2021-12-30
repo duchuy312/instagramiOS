@@ -8,32 +8,44 @@
 import SwiftUI
 
 struct ProfileTab: View {
-    let buttonWidth = (UIScreen.main.bounds.width - 80) / 2
+    let buttonWidth = (screenWidth - 50) / 2
     var body: some View {
         VStack {
             HeaderBarLike()
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
                     HStack(alignment: .center) {
-                        Image("venom-7")
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                            .clipShape(Circle())
-                            .shadow(radius: 5)
-                            .scaledToFill()
-                        
+                        if #available(iOS 15.0, *) {
+                            AsyncImage(url: URL(string: randomImage)) { image in
+                                image
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .clipShape(Circle())
+                                    .shadow(radius: 5)
+                                    .scaledToFill()
+                            }
+                        placeholder: {
+                                Image("blankpage")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .clipShape(Circle())
+                                .shadow(radius: 5)
+                                .scaledToFill()
+                            }
+                            .padding(.vertical, 3)
+                            .padding(.horizontal, 1)
+                        } else {
+                            // Fallback on earlier versions
+                        }
+
                         Spacer()
                         ForEach(followingData) { value in
                             FollowItem(numberFollow: value.followNumber, followType: value.followType)
                         }
                     }
                     .padding(.bottom, 20)
-                    Text("info1")
-                    Text("info2")
-                    Text("info3")
-                    Text("info4")
-                    Text("info5")
-                    Text("info6")
+                    Text("It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. .")
+
                     HStack() {
                         ButtonText(action: {}, buttonWidth: buttonWidth, buttonText: "Edit Profile")
                         Spacer()
@@ -47,7 +59,7 @@ struct ProfileTab: View {
                         ButtonImage(action: {}, image: "user-tag")
                     }
                     .padding(.horizontal, 30)
-                    .padding(.vertical, 10)
+                    .padding(.top, 10)
                 }
                 .padding(.horizontal, 20)
                 ImageGrid()
@@ -82,7 +94,6 @@ struct ButtonText: View {
                 .foregroundColor(.black)
                 .border(Color.gray, width: 1)
                 .cornerRadius(2)
-                .padding(.horizontal, 10)
         })
     }
 }

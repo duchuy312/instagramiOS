@@ -8,44 +8,58 @@
 import SwiftUI
 @available(iOS 15.0, *)
 struct ItemLike: View {
-    
+    let likeDatas: [ActivityData]
     var body: some View {
-        HStack(alignment: .center) {
-            AsyncImage(url: URL(string: "https://picsum.photos/200")) { image in
-                image.resizable()
-                    .frame(width: 40, height: 40)
+        VStack() {
+            ForEach(self.likeDatas, id: \.id) { (likedata) in
+                HStack(alignment: .center) {
+                    AsyncImage(url: URL(string: randomImage)) { image in
+                        image.resizable()
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
+                    } placeholder: {
+                        Image("blankpage").resizable()
+                            .frame(width: 40, height: 40)
+                    }
                     .clipShape(Circle())
-            } placeholder: {
-                Image("blankpage").resizable()
-                    .frame(width: 40, height: 40)
+                    Group {
+                        Text(likedata.name)
+                            .font(.system(size: 14))
+                            .fontWeight(.bold)
+                        +
+                        Text(" " + likedata.content)
+                            .font(.system(size: 14))
+                        +
+                        Text(" " + "5" + "h")
+                            .font(.system(size: 13))
+                            .foregroundColor(.black.opacity(0.5))
+                        
+                    }
+
+                    Spacer()
+                    
+                    switch likedata.type {
+                    case "likepost":
+                        AsyncImage(url: URL(string: randomImage)) { image in
+                            image.resizable()
+                                .frame(width: 40, height: 40)
+                        } placeholder: {
+                            Image("blankpage").resizable()
+                                .frame(width: 40, height: 40)
+                        }
+        
+                    case "know":
+                        ActivityButton(action: {}, buttonText: "Follow")
+                    case "following":
+                        ActivityButton(action: {}, buttonText: "Following")
+                    default:
+                        ActivityButton(action: {}, buttonText: "Follow")
+                    }
+                }
+                .padding(.vertical, 5)
             }
-            .clipShape(Circle())
-            
-            Text("activityModel.contentAction")
-                .font(.system(size: 14))
-            +
-            Text(" " + "activityModel.timeActionAgo" + "h")
-                .font(.system(size: 13))
-            
-            Spacer()
-            
-//            switch likeModel.activityType {
-//            case .likePost:
-//                AsyncImage(url: URL(string: "https://picsum.photos/200")) { image in
-//                    image.resizable()
-//                        .frame(width: 40, height: 40)
-//                } placeholder: {
-//                    Image("blankpage").resizable()
-//                        .frame(width: 40, height: 40)
-//                }
-//
-//            case .mayKnow:
-                ActivityButton(action: {}, buttonText: "Follow")
-//            case .following:
-//                ActivityButton(action: {}, buttonText: "Following")
-//            }
         }
-        .padding(.vertical, 5)
+
     }
 }
 
@@ -53,7 +67,7 @@ struct ItemLike_Previews: PreviewProvider {
     
     static var previews: some View {
         if #available(iOS 15.0, *) {
-            ItemLike()
+            ItemLike(likeDatas: likeDatas)
         } else {
             // Fallback on earlier versions
         }

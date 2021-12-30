@@ -9,12 +9,21 @@ import SwiftUI
 
 struct LikeTab: View {
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            Text("Activity")
+                .font(.system(size: 20))
+                .fontWeight(.bold)
+            ScrollView(.vertical, showsIndicators: false) {
+                if #available(iOS 15.0, *) {
+                    ItemLike(likeDatas: likeDatas)
+                } else {
+                    // Fallback on earlier versions
+                }
+            }
             Spacer()
             Divider()
         }
-        .background(Princeton)
-        .ignoresSafeArea(.all)
+        .padding(.horizontal, 10)
     }
 }
 

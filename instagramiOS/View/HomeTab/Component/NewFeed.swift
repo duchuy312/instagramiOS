@@ -45,7 +45,7 @@ struct NewFeed: View {
                         .padding(.horizontal, 5)
                     Divider()
                     if #available(iOS 15.0, *) {
-                        AsyncImage(url: URL(string: "https://picsum.photos/200")) { image in
+                        AsyncImage(url: URL(string: randomImage)) { image in
                             image
                                 .resizable()
                                 .scaledToFill()

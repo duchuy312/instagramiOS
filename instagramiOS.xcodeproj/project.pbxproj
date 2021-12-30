@@ -13,6 +13,10 @@
 		001EFA11277C6D8B0017FA29 /* HeaderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001EFA10277C6D8B0017FA29 /* HeaderBar.swift */; };
 		001EFA13277C70A20017FA29 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001EFA12277C70A20017FA29 /* FakeData.swift */; };
 		001EFA15277C70D70017FA29 /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001EFA14277C70D70017FA29 /* CommonModel.swift */; };
+		001EFA28277DA4740017FA29 /* video1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 001EFA27277DA4740017FA29 /* video1.mp4 */; };
+		001EFA2A277DA4810017FA29 /* video2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 001EFA29277DA4810017FA29 /* video2.mp4 */; };
+		001EFA2C277DA4870017FA29 /* video3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 001EFA2B277DA4870017FA29 /* video3.mp4 */; };
+		001EFA32277DA49A0017FA29 /* video6.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 001EFA31277DA49A0017FA29 /* video6.mp4 */; };
 		004C811F277AA1D200977690 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C811E277AA1D200977690 /* LoadingView.swift */; };
 		0078CDE42760B54600D9DB67 /* BottomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0078CDE32760B54600D9DB67 /* BottomTabView.swift */; };
 		0078CDE72760BEA100D9DB67 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0078CDE62760BEA100D9DB67 /* HomeTabView.swift */; };
@@ -46,6 +50,10 @@
 		001EFA10277C6D8B0017FA29 /* HeaderBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBar.swift; sourceTree = "<group>"; };
 		001EFA12277C70A20017FA29 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
 		001EFA14277C70D70017FA29 /* CommonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
+		001EFA27277DA4740017FA29 /* video1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video1.mp4; sourceTree = "<group>"; };
+		001EFA29277DA4810017FA29 /* video2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video2.mp4; sourceTree = "<group>"; };
+		001EFA2B277DA4870017FA29 /* video3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video3.mp4; sourceTree = "<group>"; };
+		001EFA31277DA49A0017FA29 /* video6.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video6.mp4; sourceTree = "<group>"; };
 		004C811E277AA1D200977690 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		006F511A2761FEC50095E649 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0078CDE32760B54600D9DB67 /* BottomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabView.swift; sourceTree = "<group>"; };
@@ -101,6 +109,17 @@
 				001EFA10277C6D8B0017FA29 /* HeaderBar.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		001EFA16277D99740017FA29 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				001EFA27277DA4740017FA29 /* video1.mp4 */,
+				001EFA29277DA4810017FA29 /* video2.mp4 */,
+				001EFA2B277DA4870017FA29 /* video3.mp4 */,
+				001EFA31277DA49A0017FA29 /* video6.mp4 */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		00893FC52760534400BA5653 /* Common */ = {
@@ -263,6 +282,7 @@
 		189D62A9275E4B91005EC637 = {
 			isa = PBXGroup;
 			children = (
+				001EFA16277D99740017FA29 /* Video */,
 				189D62B4275E4B92005EC637 /* instagramiOS */,
 				189D62B3275E4B92005EC637 /* Products */,
 			);
@@ -366,6 +386,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				189D62BD275E4B94005EC637 /* Preview Assets.xcassets in Resources */,
+				001EFA2C277DA4870017FA29 /* video3.mp4 in Resources */,
+				001EFA28277DA4740017FA29 /* video1.mp4 in Resources */,
+				001EFA2A277DA4810017FA29 /* video2.mp4 in Resources */,
+				001EFA32277DA49A0017FA29 /* video6.mp4 in Resources */,
 				189D62BA275E4B94005EC637 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,7 +570,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait \"\" \"\"";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -579,7 +603,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait \"\" \"\"";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
