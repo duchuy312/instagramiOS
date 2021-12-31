@@ -14,9 +14,9 @@ struct InstagramStory {
 }
 
 let stories: [InstagramStory] = [
-    InstagramStory(id: 0, name: "Arupaka", image: "venom-7"),
-    InstagramStory(id: 1, name: "Buta", image: "venom-7"),
-    InstagramStory(id: 2, name: "Hamster", image: "venom-7"),
-    InstagramStory(id: 3, name: "Hiyoko", image: "venom-7"),
-    InstagramStory(id: 4, name: "Inu", image: "venom-7")
+    InstagramStory(id: 0, name: "Arupaka", image: randomImage),
+    InstagramStory(id: 1, name: "Buta", image: randomImage),
+    InstagramStory(id: 2, name: "Hamster", image: randomImage),
+    InstagramStory(id: 3, name: "Hiyoko", image: randomImage),
+    InstagramStory(id: 4, name: "Inu", image: randomImage)
 ]

@@ -25,7 +25,7 @@ let timelines: [Timeline] = [
 
 struct NewFeed: View {
     let timelines: [Timeline]
-
+    
     var body: some View {
         VStack() {
             ForEach(self.timelines, id: \.id) { (timeline) in
@@ -40,11 +40,14 @@ struct NewFeed: View {
                         Text(timeline.name)
                             .fontWeight(.bold)
                         Spacer()
-                        Image("dots")
+                        Button(action: {}, label: {
+                            Image("dots")
+                                .padding(.horizontal, 5)
+                        })
+                        
                     }
-                        .padding(.horizontal, 5)
+                    .padding(.horizontal, 5)
                     Divider()
-                    if #available(iOS 15.0, *) {
                         AsyncImage(url: URL(string: randomImage)) { image in
                             image
                                 .resizable()
@@ -53,20 +56,15 @@ struct NewFeed: View {
                                 .clipShape(Rectangle())
                             
                         }
-                    placeholder: {
+                        placeholder: {
                             Image("blankpage")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: UIScreen.main.bounds.width, alignment: .center)
-                            .clipShape(Rectangle())
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: UIScreen.main.bounds.width, alignment: .center)
+                                .clipShape(Rectangle())
                         }
-                        .padding(.vertical, 3)
-                        .padding(.horizontal, 1)
-                    } else {
-                        // Fallback on earlier versions
-                    }
                     Divider()
-
+                    
                     HStack(){
                         ButtonNewfeed(action: {}, image: "like_unselected")
                         ButtonNewfeed(action: {}, image: "comment")
@@ -78,14 +76,15 @@ struct NewFeed: View {
                                 .frame(width: 18, height: 22)
                         })
                     }
-                    .padding(5)
+                    .padding(.vertical, 5)
+                    .padding(.horizontal, 10)
                     Group {
                         Text(timeline.name).fontWeight(.bold) +
                         Text(timeline.post)
                         Text(timeline.name).fontWeight(.bold) + Text(" and others liked").fontWeight(.bold)
                     }
-                        .padding(.horizontal, 5)
-                        .frame(width: UIScreen.main.bounds.width, alignment: .leading)
+                    .padding(.horizontal, 10)
+                    .frame(width: UIScreen.main.bounds.width, alignment: .leading)
                     
                 }
             }

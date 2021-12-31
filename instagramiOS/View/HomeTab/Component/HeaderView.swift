@@ -17,17 +17,21 @@ struct HeaderView: View {
                     .frame(width: 80, height: 30)
                 Spacer()
                 HStack {
-                    Image("plus_unselected")
-                        .resizable()
-                        .renderingMode(.template)
-                        .foregroundColor(.black)
-                        .frame(width: 30, height: 30)
+                    Button(action: {}, label: {
+                        Image("plus_unselected")
+                            .resizable()
+                            .renderingMode(.template)
+                            .foregroundColor(.black)
+                            .frame(width: 30, height: 30)
+                    })
                     Spacer()
-                    Image("comment")
-                        .resizable()
-                        .renderingMode(.template)
-                        .foregroundColor(.green)
-                        .frame(width: 30, height: 30)
+                    Button(action: {}, label: {
+                        Image("comment")
+                            .resizable()
+                            .renderingMode(.template)
+                            .foregroundColor(.green)
+                            .frame(width: 30, height: 30)
+                    })
                 }
                 .frame(width: 80, height: 30)
                 
