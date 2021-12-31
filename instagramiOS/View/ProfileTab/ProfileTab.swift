@@ -15,7 +15,6 @@ struct ProfileTab: View {
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
                     HStack(alignment: .center) {
-                        if #available(iOS 15.0, *) {
                             AsyncImage(url: URL(string: randomImage)) { image in
                                 image
                                     .resizable()
@@ -34,10 +33,6 @@ struct ProfileTab: View {
                             }
                             .padding(.vertical, 3)
                             .padding(.horizontal, 1)
-                        } else {
-                            // Fallback on earlier versions
-                        }
-
                         Spacer()
                         ForEach(followingData) { value in
                             FollowItem(numberFollow: value.followNumber, followType: value.followType)
