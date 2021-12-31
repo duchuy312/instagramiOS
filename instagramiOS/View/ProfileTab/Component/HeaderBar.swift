@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct HeaderBarLike: View {
+    @AppStorage(Setting.isLoginKey) var isLogin = DefaultSettings.isLoged
+    @State private var isActiveNavigate = false
+    func onLogout() {
+        self.isActiveNavigate = true
+        self.isLogin = false
+    }
     var body: some View {
         HStack{
             Text("Pankaj Gaikar")
@@ -23,13 +29,16 @@ struct HeaderBarLike: View {
                 })
                 
                 Spacer()
-                Button(action: {}, label: {
-                    Image("menu")
-                        .resizable()
-                        .renderingMode(.template)
-                        .foregroundColor(.black)
-                        .frame(width: 30, height: 30)
-                })
+                NavigationLink(destination: LoginView(viewModel: ViewModel()), isActive: $isActiveNavigate) {
+                    Button(action: onLogout, label: {
+                        Image("menu")
+                            .resizable()
+                            .renderingMode(.template)
+                            .foregroundColor(.black)
+                            .frame(width: 30, height: 30)
+                    })
+                }
+                
                 
             }
             .frame(width: 80, height: 30)
