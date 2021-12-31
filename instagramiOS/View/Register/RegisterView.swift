@@ -55,7 +55,7 @@ struct RegisterView: View {
                         text: $username,
                         warning: viewModel.emptyWarning(text: username)
                     )
-                    NavigationLink(destination: BottomTab(), tag: 1, selection: $selectionRegister) {
+                    NavigationLink(destination: LoginView(viewModel: ViewModel()), tag: 1, selection: $selectionRegister) {
                         CustomButton(title: Strings.signup.rawValue, action: {
                             self.selectionRegister = 1
                         })
