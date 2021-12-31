@@ -294,8 +294,8 @@
 		189D62B4275E4B92005EC637 /* instagramiOS */ = {
 			isa = PBXGroup;
 			children = (
-				180883D32778C15A000D3BC1 /* ViewModel */,
 				189D62B5275E4B92005EC637 /* instagramiOSApp.swift */,
+				180883D32778C15A000D3BC1 /* ViewModel */,
 				180883D02778BF03000D3BC1 /* Model */,
 				000BCD91276AD74A008278B8 /* Service */,
 				00936AFF2767332A00B40AE3 /* View */,

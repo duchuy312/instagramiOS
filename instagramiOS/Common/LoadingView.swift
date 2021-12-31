@@ -23,18 +23,10 @@ struct LoadingView<Content>: View where Content: View {
                 
                 // all contents inside here will only be shown when isShowing is true
                 if isShowing {
-                    // this Rectangle is a semi-transparent black overlay
-                    Rectangle()
-                        .fill(Color.black).opacity(isShowing ? 0.6 : 0)
-                        .edgesIgnoringSafeArea(.all)
-
-                    // the magic bit - our ProgressView just displays an activity
-                    // indicator, with some text underneath showing what we are doing
                     VStack(spacing: 48) {
-                        ProgressView().scaleEffect(2.0, anchor: .center)
+                        ProgressView().scaleEffect(3.0, anchor: .center)
                     }
-                    .frame(width: 250, height: 200)
-                    .background(Color.white)
+                    .frame(width: 250, height: 250)
                     .foregroundColor(Color.primary)
                     .cornerRadius(16)
                 }

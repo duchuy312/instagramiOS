@@ -50,15 +50,6 @@ struct LoginView: View {
                     CustomButton(title: Strings.login.rawValue, action: onLogin)
                 }.disabled(disableForm)
                 TextNavigation(text: Strings.forgotPass.rawValue, textBold: Strings.helpForgot.rawValue, desAddress: AnyView(RegisterView(viewModel: ViewModel())))
-                Button(action: {
-                    isLoading = true
-                    // Mock some network request or other task
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        isLoading = false
-                    }
-                }, label: {
-                    Text("Tap Me!")
-                })
                 Spacer()
                 Divider()
                 TextNavigation(text: Strings.dontHaveAccount.rawValue, textBold: Strings.signup.rawValue, desAddress: AnyView(RegisterView(viewModel: ViewModel())))
